@@ -71,9 +71,9 @@ app.get('/test/auth', (req, res) => {
   res.json(authStatus);
 });
 
-// Health check endpoint
+// Landing page
 app.get('/', (req, res) => {
-  res.json({ message: 'API Server is running' });
+  res.render('index');
 });
 
 // Error handling middleware

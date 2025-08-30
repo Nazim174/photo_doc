@@ -1,32 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <meta name="description" content="Заказывайте обработку фотографий онлайн. Быстро, качественно, с использованием искусственного интеллекта. Райфаях качества, скрого заказа.">
+    <meta name="keywords" content="обработка фото, фотодокументы, ИИ, заказ онлайн, профессиональная обработка">
+    <meta property="og:title" content="ФотоСервис Pro - Профессиональная обработка фото с ИИ">
+    <meta property="og:description" content="Заказывайте обработку фотографий онлайн. Быстро, качественно, с использованием искусственного интеллекта. Райфаях качества, скрого заказа.">
+    <meta property="og:url" content="https://photopro.ru/">
+    <meta property="og:image" content="https://photopro.ru/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ФотоСервис Pro - Профессиональная обработка фото с ИИ">
+    <meta name="twitter:description" content="Заказывайте обработку фотографий онлайн. Быстро, качественно, с использованием искусственного интеллекта. Райфаях качества, скрого заказа.">
+    <meta name="twitter:image" content="https://photopro.ru/logo.png">
+    <link rel="canonical" href="https://photopro.ru/">
+    <title>ФотоСервис Pro - Профессиональная обработка фото с ИИ</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "ФотоСервис Pro",
+        "description": "Профессиональная обработка фото с использованием искусственного интеллекта",
+        "serviceType": "Photo Processing",
+        "provider": {
+            "@type": "Organization",
+            "name": "ФотоСервис Pro",
+            "url": "https://photopro.ru/"
+        },
+        "areaServed": "Worldwide"
+    }
+    </script>
 </head>
 <body>
-    <div class="dashboard-container">
-        <header>
-            <h1>Admin Dashboard</h1>
-            <form action="/admin/logout" method="POST" style="display: inline;">
-                <button type="submit" class="logout-btn">Logout</button>
+    <header>
+        <div class="logo">
+            <h1>ФотоСервис Pro</h1>
+        </div>
+        <nav>
+            <a href="#intro">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#cta">Заказать</a>
+            <a href="#testimonials">Отзывы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        <section id="intro" class="intro">
+            <h2>Добро пожаловать в ФотоСервис Pro</h2>
+            <p>Профессиональная обработка фотографий с использованием ИИ и современных технологий. Улучшайте качество ваших изображений за считанные минуты.</p>
+            <p>Используйте наш бот или веб-интерфейс для загрузки и обработки фото.</p>
+            <a href="#cta" class="cta-button">Начать обработку</a>
+        </section>
+        <section id="cta" class="cta-section">
+            <h2>Заказать обработку фото</h2>
+            <p>Заполните форму ниже, загрузите ваше фото и получите результат в кратчайшие сроки.</p>
+            <form class="order-form" action="/api/orders" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание заказа:</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Опишите желаемую обработку фото"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Загрузить фото:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                </div>
+                <div class="cta-buttons">
+                    <button type="submit" class="btn-primary">Заказать обработку фото</button>
+                    <button type="button" class="btn-secondary">Связаться со мной</button>
+                </div>
             </form>
-        </header>
-        <main>
-            <h2>Welcome, Admin!</h2>
-            <p>You are successfully logged in to the admin panel.</p>
-            <div class="dashboard-content">
-                <h3>Available Actions:</h3>
-                <ul>
-                    <li>Manage users</li>
-                    <li>View logs</li>
-                    <li>Configure settings</li>
-                </ul>
+        </section>
+        <section id="gallery" class="gallery-section">
+            <h2>Примеры обработки фото</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=До%20обработки" alt="До обработки">
+                    <h3>До обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=После%20обработки" alt="После обработки">
+                    <h3>После обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=До%20обработки" alt="До обработки">
+                    <h3>До обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=После%20обработки" alt="После обработки">
+                    <h3>После обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=До%20обработки" alt="До обработки">
+                    <h3>До обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=После%20обработки" alt="После обработки">
+                    <h3>После обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=До%20обработки" alt="До обработки">
+                    <h3>До обработки</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400?text=После%20обработки" alt="После обработки">
+                    <h3>После обработки</h3>
+                </div>
             </div>
-        </main>
-    </div>
+        </section>
+        <section id="services" class="why-choose-us">
+            <h2>Почему выбрать ФотоСервис Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Качество</h3>
+                    <p>Профессиональная обработка с использованием современных алгоритмов ИИ.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Скорость</h3>
+                    <p>Получите результат в течение нескольких минут после заказа.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Безопасность</h3>
+                    <p>Ваши фото защищены шифрованием и полным соблюдением конфиденциальности.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Цена</h3>
+                    <p>Доступные тарифы для каждого - от новичка до профессионала.</p>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="testimonials">
+            <h2>Отзывы наших клиентов</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <p>"Отличный сервис! Фото получилось на уровне профессиональной студии."</p>
+                    <cite>- Анна, фотограф</cite>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Быстро, качественно и недорого. Рекомендую всем знакомым!"</p>
+                    <cite>- Михаил, блогер</cite>
+                </div>
+                <div class="testimonial-item">
+                    <p>"ИИ обработка превзошла все ожидания. Фантастическое качество."</p>
+                    <cite>- Мария, дизайнер</cite>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="contact" class="footer-content">
+            <div class="footer-section">
+                <h3>ФотоСервис Pro</h3>
+                <p>Профессиональная обработка фото с использованием искусственного интеллекта.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Email: info@photopro.ru</p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ссылки</h3>
+                <a href="#intro">Главная</a>
+                <a href="#services">Услуги</a>
+                <a href="#cta">Заказать</a>
+                <a href="#testimonials">Отзывы</a>
+                <a href="#contact">Контакты</a>
+            </div>
+        </div>
+        <p>&copy; 2024 ФотоСервис Pro. Все права защищены.</p>
+    </footer>
     <script src="/js/app.js"></script>
 </body>
 </html>
