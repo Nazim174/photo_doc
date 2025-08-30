@@ -135,4 +135,30 @@ router.post('/payments/yookassa/qr', async (req, res) => {
   }
 });
 
+// Route to get all orders
+router.get('/orders', async (req, res) => {
+  try {
+    const orders = await orderService.getOrders();
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.error('Get orders error:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+// Route to create a new order
+router.post('/orders', async (req, res) => {
+  const { email, description, photo } = req.body;
+  try {
+    if (!email) {
+      return res.status(400).json({ success: false, error: 'Email is required' });
+    }
+    const order = await orderService.createOrder({ email, description, photo });
+    res.json({ success: true, order });
+  } catch (error) {
+    console.error('Create order error:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
