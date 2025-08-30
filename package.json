@@ -1,0 +1,37 @@
+{
+  "name": "photo_doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon local-dev.js",
+    "dev:web-only": "nodemon index.js",
+    "dev:bot-only": "node src/bot/bot.js",
+    "test": "jest",
+    "test:integration": "jest --testPathPattern=tests/integration",
+    "server": "node src/server/app.js",
+    "bot": "node src/bot/bot.js",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "build": "echo 'No build step required for Node.js deployment'"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "telegraf": "^4.16.3"
+  }
+}

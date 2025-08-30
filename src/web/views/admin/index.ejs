@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Главная</title>
+    <link rel="stylesheet" href="/css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="admin-nav">
+            <div class="nav-brand">
+                <h2>Админ-панель</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/admin" class="active">Главная</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+                <li><a href="/admin/users">Пользователи</a></li>
+                <li><a href="/admin/stats">Статистика</a></li>
+                <li>
+                    <form action="/admin/logout" method="POST" style="display: inline;">
+                        <button type="submit" class="logout-btn">Выход</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="admin-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Всего заказов</h3>
+                    <div class="stat-number"><%= totalOrders %></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Всего пользователей</h3>
+                    <div class="stat-number"><%= totalUsers %></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Активных заказов</h3>
+                    <div class="stat-number"><%= orders.filter(o => o.status === 'pending').length %></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Завершенных заказов</h3>
+                    <div class="stat-number"><%= orders.filter(o => o.status === 'completed').length %></div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="recent-orders">
+                    <h3>Последние заказы</h3>
+                    <% if (orders.length > 0) { %>
+                        <div class="orders-list">
+                            <% orders.forEach(order => { %>
+                                <div class="order-item">
+                                    <div class="order-info">
+                                        <span class="order-id">#<%= order.id %></span>
+                                        <span class="order-date"><%= new Date(order.created_at).toLocaleDateString('ru-RU') %></span>
+                                    </div>
+                                    <div class="order-status status-<%= order.status %>">
+                                        <%= order.status === 'pending' ? 'Ожидает' :
+                                           order.status === 'processing' ? 'В обработке' :
+                                           order.status === 'completed' ? 'Завершен' :
+                                           order.status === 'cancelled' ? 'Отменен' : order.status %>
+                                    </div>
+                                    <div class="order-actions">
+                                        <a href="/admin/orders/<%= order.id %>" class="btn btn-small">Подробнее</a>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    <% } else { %>
+                        <p>Нет заказов</p>
+                    <% } %>
+                </div>
+
+                <div class="recent-users">
+                    <h3>Последние пользователи</h3>
+                    <% if (users.length > 0) { %>
+                        <div class="users-list">
+                            <% users.forEach(user => { %>
+                                <div class="user-item">
+                                    <div class="user-info">
+                                        <span class="user-name"><%= user.username %></span>
+                                        <span class="user-email"><%= user.email %></span>
+                                    </div>
+                                    <div class="user-date">
+                                        <%= new Date(user.created_at).toLocaleDateString('ru-RU') %>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    <% } else { %>
+                        <p>Нет пользователей</p>
+                    <% } %>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+        <script>
+            alert('<%= error %>');
+        </script>
+    <% } %>
+</body>
+</html>

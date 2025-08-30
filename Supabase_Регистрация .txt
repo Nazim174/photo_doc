@@ -1,0 +1,69 @@
+Создать новую организацию
+
+Это ваша организация в рамках Supabase.
+
+Например, вы можете использовать название вашей компании или отдела.
+Имя     Nazim174's Org
+Как называется ваша компания или команда?
+Тип      Персональный
+Что лучше всего охарактеризовать вашу организацию?
+План
+Цены         Бесплатно!
+План распространяется на вашу новую организацию.
+
+Вы можете переименовать свою организацию позже
+
+Создать новый проект
+
+Ваш проект будет иметь свой собственный экземпляр и полную базу данных Postgres.
+Будет установлен API, чтобы вы могли легко взаимодействовать с новой базой данных.
+Организация
+Название проекта        photo_doc
+База данных Пароль      asxTDE32sWMJ
+
+Это пароль к вашей базе данных Postgres, поэтому его должно быть сильным и трудно угадать. Создать пароль           asxTDE32sWMJ
+Регион
+                        East US (Ohio)
+Выберите ближайший к вашим пользователям регион для наилучшей производительности.
+
+
+  https://cljzaqiwdkvwflylthsl.supabase.co
+
+
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsanphcWl3ZGt2d2ZseWx0aHNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYyNzcwNTUsImV4cCI6MjA3MTg1MzA1NX0.UP-Vtgw1V9nleV-Y5MNrkJO0TIw_WLjWvnF043pQWP4
+
+  Project API
+
+Your API is secured behind an API gateway which requires an API Key for every request.
+You can use the parameters below to use Supabase client libraries.
+Project URL
+
+A RESTful endpoint for querying and managing your database.
+
+API Key
+anon
+public
+
+This key is safe to use in a browser if you have enabled Row Level Security (RLS) for your tables and configured policies. You may also use the service key which can be found here to bypass RLS.
+Javascript
+Dart
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://cljzaqiwdkvwflylthsl.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+
+BotFather, [27.08.2025 12:26]
+Sorry, this username is already taken. Please try something different.
+
+BotFather, [27.08.2025 12:28]
+Done! Congratulations on your new bot. You will find it at t.me/photo_doc74_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+
+Use this token to access the HTTP API:
+8467068003:AAGw6395fGqVXBahnzA9xOJR6LqvZrI-lz0
+Keep your token secure and store it safely, it can be used by anyone to control your bot.
+
+For a description of the Bot API, see this page: https://core.telegram.org/bots/api
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <form action="/admin/logout" method="POST" style="display: inline;">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </header>
+        <main>
+            <h2>Welcome, Admin!</h2>
+            <p>You are successfully logged in to the admin panel.</p>
+            <div class="dashboard-content">
+                <h3>Available Actions:</h3>
+                <ul>
+                    <li>Manage users</li>
+                    <li>View logs</li>
+                    <li>Configure settings</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .success-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .success-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .order-info {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .next-steps {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✅</div>
+        <h1 class="success-title"><%= title %></h1>
+
+        <div class="success-details">
+            <% if (typeof orderId !== 'undefined') { %>
+            <div class="order-info">
+                <strong>Номер заказа:</strong> <%= orderId.slice(0, 8) %>
+            </div>
+            <% } %>
+
+            <% if (typeof paymentId !== 'undefined') { %>
+            <div class="order-info">
+                <strong>ID платежа:</strong> <%= paymentId %>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="next-steps">
+            <h3>Что дальше?</h3>
+            <ul style="text-align: left;">
+                <li>Заказ будет обработан в ближайшее время</li>
+                <li>Вы получите уведомление о статусе заказа</li>
+                <li>При возникновении вопросов обращайтесь в поддержку</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a href="/" class="btn-success">Вернуться на главную</a>
+        </div>
+    </div>
+
+    <script>
+        // Автоматическое перенаправление на главную через 10 секунд
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 10000);
+    </script>
+</body>
+</html>

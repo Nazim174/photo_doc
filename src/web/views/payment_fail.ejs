@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .fail-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .fail-icon {
+            font-size: 64px;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+
+        .fail-title {
+            color: #dc3545;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .error-details {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .order-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .retry-options {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <div class="fail-container">
+        <div class="fail-icon">❌</div>
+        <h1 class="fail-title"><%= title %></h1>
+
+        <div class="error-details">
+            <p><%= typeof error !== 'undefined' ? error : 'Произошла неизвестная ошибка при оплате' %></p>
+        </div>
+
+        <% if (typeof orderId !== 'undefined') { %>
+        <div class="order-info">
+            <strong>Номер заказа:</strong> <%= orderId.slice(0, 8) %>
+        </div>
+        <% } %>
+
+        <div class="retry-options">
+            <h3>Что делать дальше?</h3>
+            <ul style="text-align: left;">
+                <li>Проверьте правильность введенных данных</li>
+                <li>Убедитесь, что на карте достаточно средств</li>
+                <li>Свяжитесь с вашим банком если проблема persists</li>
+                <li>Попробуйте оплатить еще раз</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <% if (typeof orderId !== 'undefined') { %>
+                <a href="/payment/order/<%= orderId %>" class="btn-primary">Попробовать снова</a>
+            <% } %>
+            <a href="/payment" class="btn-primary">Выбрать другой заказ</a>
+            <a href="/" class="btn-primary">Вернуться на главную</a>
+        </div>
+    </div>
+
+    <script>
+        // Показать дополнительную информацию об ошибке в консоли
+        console.error('Payment failed:', {
+            error: '<%= typeof error !== "undefined" ? error : "Unknown error" %>',
+            orderId: '<%= typeof orderId !== "undefined" ? orderId : "Not specified" %>',
+            timestamp: new Date().toISOString()
+        });
+    </script>
+</body>
+</html>
